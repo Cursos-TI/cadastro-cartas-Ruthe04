@@ -7,8 +7,8 @@
 
 /* cada carta deve ter:
  Estado: nome e uma letra de 'A' a 'H' para representação
- Código da Carta: A letra do estado seguida de um número de 01 a 04 
  Nome da Cidade
+ Código da Carta: A letra do estado seguida de um número de 01 a 04 
  População
  Área (em km²)
  PIB
@@ -67,7 +67,7 @@ int main() {
 
   printf("Insira a população total da carta 1:");
   scanf("%d", &populacao_carta1);
-  while (getchar() != '\n');
+  while (getchar() != '\n'); //limpa o buffer 
 
   printf("Insira a população total da carta 2:");
   scanf("%d", &populacao_carta2);
@@ -101,14 +101,24 @@ int main() {
   printf("\n=== Carta 1 ===\n");
   printf("Estado: %s\n", estado_carta1);
   printf("Cidade: %s\n", cidade_carta1);
-  printf("Código da carta: %d\n", id_carta1);
+  printf("Código da carta: %s\n", id_carta1);
   printf("População: %d\n", populacao_carta1);
   printf("Área em Km²: %.2f\n", area_carta1);
   printf("PIB: %.2f\n", pib_carta1);
   printf("Pontos Turísticos: %d\n", turismo_carta1);
 
-  //printf("Carta 2: \n, Estado: %s\n, Cidade: %s\n, Código da carta: %d\n, População: %d\n, Área em Km²: %f\n, PIB: %f\n, Pontos Turísticos: %d\n", 
-  //estado_carta2, cidade_carta2, id_carta2, populacao_carta2, area_carta2, pib_carta2, turismo_carta2);
+  printf("\n=== Carta 2 ===\n");
+  printf("Estado: %s\n", estado_carta2);
+  printf("Cidade: %s\n", cidade_carta2);
+  printf("Código da carta: %s\n", id_carta2);
+  printf("População: %d\n", populacao_carta2);
+  printf("Área em Km²: %.2f\n", area_carta2);
+  printf("PIB: %.2f\n", pib_carta2);
+  printf("Pontos Turísticos: %d\n", turismo_carta2);
+
+  printf("Obrigada pelos dados, nos vemos nas próximas fases ;)");
 
 return 0;
 } 
+
+//por padrão o %f tem 6 casas decimaiss

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das cartas
@@ -37,10 +38,61 @@ int main() {
   int turismo_carta1;
   int turismo_carta2;
 
-  // Área para entrada de dados
+  // Área para entrada de dados 
+  printf("Insira o estado da carta 1, e uma letra de A a H para representação:");
+  // "Leia do teclado até 39 caracteres e guarde no array estado_carta1, e no final coloque o caractere \0 que marca o fim da string."
+  fgets(estado_carta1, sizeof(estado_carta1), stdin);
+  // remove o \n que o fgets pode deixar
+  estado_carta1[strcspn(estado_carta1, "\n")] = 0;
   
+  printf("Insira o estado da carta 2, e uma letra de A a H para representação:");
+  fgets(estado_carta2, sizeof(estado_carta2), stdin);
+  estado_carta2[strcspn(estado_carta2, "\n")] = 0;
+
+  printf("Insira o nome da cidade da carta 1:");
+  fgets(cidade_carta1, sizeof(cidade_carta1), stdin);
+  cidade_carta1[strcspn(cidade_carta1, "\n")] = 0;
+
+  printf("Insira o nome da cidade da carta 2:");
+  fgets(cidade_carta2, sizeof(cidade_carta2), stdin);
+  cidade_carta2[strcspn(cidade_carta2, "\n")] = 0;
+
+  printf("Insira o código da carta 1, que é a letra que representa o estado + um número de 01 a 04:");
+  scanf("%d", &id_carta1);
+
+  printf("Insira o código da carta 2, que é a letra que representa o estado + um número de 01 a 04:");
+  scanf("%d", &id_carta2);
+
+  printf("Insira a população total da carta 1:");
+  scanf("%d", &populacao_carta1);
+
+  printf("Insira a população total da carta 2:");
+  scanf("%d", &populacao_carta2);
+
+  printf("Insira a área total em Km² da carta 1:");
+  scanf("%f", &area_carta1);
+
+  printf("Insira a área total em Km² da carta 2:");
+  scanf("%f", &area_carta2);
+
+  printf("Insira o PIB da carta 1:");
+  scanf("%f", &pib_carta1);
+
+  printf("Insira o PIB da carta 2:");
+  scanf("%f", &pib_carta2);
+
+  printf("Insira o número de pontos turísticos da carta 1:");
+  scanf("%d", &turismo_carta1);
+
+  printf("Insira o número de pontos turísticos da carta 2:");
+  scanf("%d", &turismo_carta2);
 
   // Área para exibição dos dados da cidade
+  printf("Carta 1: \n, Estado: %s\n, Cidade: %s\n, Código da carta: %d\n, População: %d\n, Área em Km²: %f\n, PIB: %f\n, Pontos Turísticos: %d\n", 
+  estado_carta1, cidade_carta1, id_carta1, populacao_carta1, area_carta1, pib_carta1, turismo_carta1);
+
+  printf("Carta 2: \n, Estado: %s\n, Cidade: %s\n, Código da carta: %d\n, População: %d\n, Área em Km²: %f\n, PIB: %f\n, Pontos Turísticos: %d\n", 
+  estado_carta2, cidade_carta2, id_carta2, populacao_carta2, area_carta2, pib_carta2, turismo_carta2);
 
 return 0;
 } 

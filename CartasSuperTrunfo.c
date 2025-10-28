@@ -13,6 +13,15 @@
  Área (em km²)
  PIB
  Número de Pontos Turísticos
+
+ nível intermediario: 
+ 1- Calcular a Densidade Populacional: Divida a população da cidade pela sua área. 
+ O resultado será a densidade populacional, que representa o número de habitantes por quilômetro quadrado. 
+ Armazene esse valor em uma variável do tipo float.
+ 
+2- Calcular o PIB per Capita: Divida o PIB da cidade pela sua população. 
+O resultado será o PIB per capita, que indica a riqueza média por pessoa na cidade. 
+Armazene esse valor em uma variável do tipo float.
 */
 
 int main() {
@@ -38,8 +47,12 @@ int main() {
   int turismo_carta1;
   int turismo_carta2;
 
+
+  //nivel intermediario, calculos abaixo, após pegar o valor da densidade e do pib do usuário
+  
+
   // Área para entrada de dados 
-  printf("Insira o estado da carta 1, e uma letra de A a H para representação:");
+  printf("Insira o estado da carta 1, e uma letra de A a H para representação: ");
   // "Leia do teclado até 39 caracteres e guarde no array estado_carta1, e no final coloque o caractere \0 que marca o fim da string."
   fgets(estado_carta1, sizeof(estado_carta1), stdin);
   // remove o \n que o fgets pode deixar
@@ -49,6 +62,8 @@ int main() {
   fgets(estado_carta2, sizeof(estado_carta2), stdin);
   estado_carta2[strcspn(estado_carta2, "\n")] = 0;
 
+  printf("\n");
+
   printf("Insira o nome da cidade da carta 1:");
   fgets(cidade_carta1, sizeof(cidade_carta1), stdin);
   cidade_carta1[strcspn(cidade_carta1, "\n")] = 0;
@@ -56,6 +71,8 @@ int main() {
   printf("Insira o nome da cidade da carta 2:");
   fgets(cidade_carta2, sizeof(cidade_carta2), stdin);
   cidade_carta2[strcspn(cidade_carta2, "\n")] = 0;
+
+  printf("\n");
 
   printf("Insira o código da carta 1, que é a letra que representa o estado + um número de 01 a 04:");
   fgets(id_carta1, sizeof(id_carta1), stdin);
@@ -65,6 +82,8 @@ int main() {
   fgets(id_carta2, sizeof(id_carta2), stdin);
   id_carta2[strcspn(id_carta2, "\n")] = 0;
 
+  printf("\n");
+
   printf("Insira a população total da carta 1:");
   scanf("%d", &populacao_carta1);
   while (getchar() != '\n'); //limpa o buffer 
@@ -72,6 +91,8 @@ int main() {
   printf("Insira a população total da carta 2:");
   scanf("%d", &populacao_carta2);
   while (getchar() != '\n');
+
+  printf("\n");
 
   printf("Insira a área total em Km² da carta 1:");
   scanf("%f", &area_carta1);
@@ -81,6 +102,8 @@ int main() {
   scanf("%f", &area_carta2);
   while (getchar() != '\n');
 
+  printf("\n");
+
   printf("Insira o PIB da carta 1:");
   scanf("%f", &pib_carta1);
   while (getchar() != '\n');
@@ -89,6 +112,8 @@ int main() {
   scanf("%f", &pib_carta2);
   while (getchar() != '\n');
 
+  printf("\n");
+
   printf("Insira o número de pontos turísticos da carta 1:");
   scanf("%d", &turismo_carta1);
   while (getchar() != '\n');
@@ -96,6 +121,17 @@ int main() {
   printf("Insira o número de pontos turísticos da carta 2:");
   scanf("%d", &turismo_carta2);
   while (getchar() != '\n');
+
+
+  //nivel intermediario
+  //calculo densidade populacional 
+  float densidade_carta1 = populacao_carta1 / area_carta1;
+  float densidade_carta2 = populacao_carta2 / area_carta2;
+  //calculo do pib per capita
+  float pibCapita_carta1 = pib_carta1 / populacao_carta1;
+  float pibCapita_carta2 = pib_carta2 / populacao_carta2;
+  //populacao é tipo int, area e pib sao tipo float, aqui ocorre uma conversão de dados implicita
+
 
   // Área para exibição dos dados da cidade
   printf("\n=== Carta 1 ===\n");
@@ -106,6 +142,9 @@ int main() {
   printf("Área em Km²: %.2f\n", area_carta1);
   printf("PIB: %.2f\n", pib_carta1);
   printf("Pontos Turísticos: %d\n", turismo_carta1);
+  //nivel intermediario
+  printf("Densidade populacional: %.2f\n", densidade_carta1);
+  printf("PIB per capita: %.2f\n", pibCapita_carta1);
 
   printf("\n=== Carta 2 ===\n");
   printf("Estado: %s\n", estado_carta2);
@@ -115,6 +154,12 @@ int main() {
   printf("Área em Km²: %.2f\n", area_carta2);
   printf("PIB: %.2f\n", pib_carta2);
   printf("Pontos Turísticos: %d\n", turismo_carta2);
+  //nivel intermediario
+  printf("Densidade populacional: %.2f\n", densidade_carta2);
+  printf("PIB per capita: %.2f\n", pibCapita_carta2);
+
+  printf("\n");
+
 
   printf("Obrigada pelos dados, nos vemos nas próximas fases ;)");
 

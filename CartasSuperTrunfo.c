@@ -6,22 +6,20 @@
 // Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
 
 /* cada carta deve ter:
- Estado: nome e uma letra de 'A' a 'H' para representação
+ Estado
  Nome da Cidade
- Código da Carta: A letra do estado seguida de um número de 01 a 04 
+ Código da Carta
  População
  Área (em km²)
  PIB
  Número de Pontos Turísticos
+ nível intermediario: feito
 
- nível intermediario: 
- 1- Calcular a Densidade Populacional: Divida a população da cidade pela sua área. 
- O resultado será a densidade populacional, que representa o número de habitantes por quilômetro quadrado. 
- Armazene esse valor em uma variável do tipo float.
- 
-2- Calcular o PIB per Capita: Divida o PIB da cidade pela sua população. 
-O resultado será o PIB per capita, que indica a riqueza média por pessoa na cidade. 
-Armazene esse valor em uma variável do tipo float.
+ nível mestre:
+ "Super Poder" somando todos os atributos numéricos 
+ inverso da densidade populacional – quanto menor a densidade, maior o "poder"               
+ Compare as duas cartas atributo por atributo (exceto estado, código e nome),
+ incluindo o Super Poder. Lembre-se: para a densidade populacional, a carta com o menor valor vence
 */
 
 int main() {
@@ -132,6 +130,25 @@ int main() {
   float pibCapita_carta2 = pib_carta2 / populacao_carta2;
   //populacao é tipo int, area e pib sao tipo float, aqui ocorre uma conversão de dados implicita
 
+  //nivel mestre
+  float inversoDensidade1 = 1.0 / densidade_carta1;
+  float inversoDensidade2 = 1.0 / densidade_carta2;
+
+  float superPoder1 = (float)populacao_carta1 + area_carta1 + pib_carta1 + pibCapita_carta1 
+  + (float)turismo_carta1 + inversoDensidade1;
+  float superPoder2 = (float)populacao_carta2 + area_carta2 + pib_carta2 + pibCapita_carta2 
+  + (float)turismo_carta2 + inversoDensidade2;
+
+
+  //comparações
+  int venceuPopulacao = populacao_carta1 > populacao_carta2;
+  int venceuArea = area_carta1 > area_carta2;
+  int venceuPib = pib_carta1 > pib_carta2;
+  int venceuPibCapita = pibCapita_carta1 > pibCapita_carta2;
+  int venceuTurismo = turismo_carta1 > turismo_carta2;
+  int venceuDensidade = densidade_carta1 < densidade_carta2;
+  int venceuPoder = superPoder1 > superPoder2;
+
 
   // Área para exibição dos dados da cidade
   printf("\n=== Carta 1 ===\n");
@@ -158,10 +175,23 @@ int main() {
   printf("Densidade populacional: %.2f\n", densidade_carta2);
   printf("PIB per capita: %.2f\n", pibCapita_carta2);
 
+
+  //nivel mestre 
+  printf("\n===Vencedor===\n");
+  printf("1 para verdadeiro, 0 para falso \n");
+
+  printf("Carta 1 venceu população? %d\n", venceuPopulacao);
+  printf("Carta 1 venceu Área? %d\n", venceuArea);
+  printf("Carta 1 venceu PIB? %d\n", venceuPib);
+  printf("Carta 1 venceu PIB Per Capita? %d\n", venceuPibCapita);
+  printf("Carta 1 venceu Pontos Turísticos? %d\n", venceuTurismo);
+  printf("Carta 1 venceu Densidade? %d\n", venceuDensidade);
+  printf("Carta 1 venceu Super Poder? %d\n", venceuPoder);
+
   printf("\n");
 
 
-  printf("Obrigada pelos dados, nos vemos nas próximas fases ;)");
+  printf("Obrigada pelos dados, fase final! Difícil sem usar estruturas condicionais :(");
 
 return 0;
 } 
